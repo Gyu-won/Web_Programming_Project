@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+
+    <style>
+        .box {
+            width : 100px;
+        }
+
+        .area {
+            margin-left : 10px;
+        }
+    </style>
+
+    <script>
+        var namelist = new Array();
+        var numlist = [];
+        var sexlist = [];
+        
+        function register(name, num) {
+            namelist.push(name);
+            numlist.push(num);
+            alert(name + "님 등록완료 됐습니다. 같이 재밌게 활동해요!!");
+        }
+
+        function printMember() {                
+            if(namelist.length == 0)
+            {
+                document.write("동아리에 등록한 사람이 없습니다.")
+            }
+            else {
+                document.write("&nbsp이름 &nbsp &nbsp &nbsp &nbsp &nbsp 학번");
+                document.write("<hr>");
+                for (var i = 0; i < namelist.length; i++)
+                {
+                    document.write(namelist[i] + "&nbsp &nbsp &nbsp");
+                    document.write(numlist[i] + "<br>");
+                }
+            }           
+        }
+        
+    </script>
+</head>
+<body>
+    <h2>동아리 가입서</h2>
+    <p>터프시커리 신입생 가입서입니다.</p>
+    <p>양식대로 작성 후 제출하여 주시면 감사하겠습니다.</p>
+    <form>
+        <fieldset class = "box">
+            <legend>가입 신청</legend>
+            <p>
+                - 이름
+                <input type="text" id="nametag">
+            </p>
+
+            <p>
+                - 학번
+                <input type="text" id="number">
+            </p>
+
+            <p>
+                - 성별
+                <input type="radio" name="sex" value="male">남
+                <input type="radio" name="sex" value="female">여
+            </p>
+
+            <p>
+                - 동아리 지원 동기
+            </p>
+                <textarea class="area" rows="12" cols="50">춤 경험 여부나 동아리를 지원하게 된 계기를 적어주세요.</textarea>
+            </p>
+
+            <input type="button" onclick="register(nametag.value, number.value)" value = "제출" style = "margin-left : 10px">
+            <input type="reset" value="초기화">
+            <input type="button" onclick="printMember()" value =" 등록자 확인 " style = "margin-left: 150px">
+
+        </fieldset>
+    </form>
+</body>
+</html>
